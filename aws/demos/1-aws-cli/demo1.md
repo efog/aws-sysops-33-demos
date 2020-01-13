@@ -72,7 +72,7 @@ In this scenario we'll create a ubuntu based EC2 instance in the default region.
     Use this command to test launch instance command:
 
     ```` bash
-    $ aws ec2 run-instances --image-id $(aws ec2 describe-images --filters "Name=owner-alias,Values=[amazon]" "Name=architecture,Values=x86_64" "Name=name,Values=ubuntu-bionic*" --query "Images[*].[ImageId]" --output text) --count 1 --instance-type t1.micro --key-name sysops33-demo-key --query [Instances[0].InstanceId,Instances[0].NetworkInterfaces[0].Association.PublicDnsName] --tag-specifications 'ResourceType='instance',Tags=[{Key='owner',Value='student'},{Key='app',Value='vm'}]' --output text --dry-run
+    $ aws ec2 run-instances --image-id $(aws ec2 describe-images --filters "Name=owner-alias,Values=[amazon]" "Name=architecture,Values=x86_64" "Name=name,Values=ubuntu-bionic*" --query "Images[*].[ImageId]" --output text) --count 1 --instance-type t2.micro --key-name sysops33-demo-key --query [Instances[0].InstanceId,Instances[0].NetworkInterfaces[0].Association.PublicDnsName] --tag-specifications 'ResourceType='instance',Tags=[{Key='owner',Value='student'},{Key='app',Value='vm'}]' --output text --dry-run
 
     An error occurred (DryRunOperation) when calling the RunInstances operation: Request would have succeeded, but DryRun flag is set.
     ```` 
@@ -80,7 +80,7 @@ In this scenario we'll create a ubuntu based EC2 instance in the default region.
     Remove dry-run to run the instance:
     
     ```` bash
-    $ aws ec2 run-instances --image-id $(aws ec2 describe-images --filters "Name=owner-alias,Values=[amazon]" "Name=architecture,Values=x86_64" "Name=name,Values=ubuntu-bionic*" --query "Images[*].[ImageId]" --output text) --count 1 --instance-type t1.micro --key-name sysops33-demo-key --query [Instances[0].InstanceId] --tag-specifications 'ResourceType='instance',Tags=[{Key='owner',Value='student'},{Key='app',Value='vm'}]' --output text
+    $ aws ec2 run-instances --image-id $(aws ec2 describe-images --filters "Name=owner-alias,Values=[amazon]" "Name=architecture,Values=x86_64" "Name=name,Values=ubuntu-bionic*" --query "Images[*].[ImageId]" --output text) --count 1 --instance-type t2.micro --key-name sysops33-demo-key --query [Instances[0].InstanceId] --tag-specifications 'ResourceType='instance',Tags=[{Key='owner',Value='student'},{Key='app',Value='vm'}]' --output text
 
     i-026bcb231de80de50
     ```` 
