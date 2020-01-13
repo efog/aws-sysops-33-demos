@@ -88,7 +88,7 @@ In this scenario we'll create a ubuntu based EC2 instance in the default region.
 1. Connect to the instance:
 
     ```` bash
-    ssh -i ~/.ssh/sysops33-demo-key.pem ec2-user@$(aws ec2 describe-instances --filter "Name=instance-state-name,Values=running" "Name=tag:owner,Values=student" --query ["Reservations[*].Instances[*].NetworkInterfaces[0].Association.PublicDnsName"] --output text)
+    ssh -i ~/.ssh/sysops33-demo-key.pem ubuntu@$(aws ec2 describe-instances --filter "Name=instance-state-name,Values=running" "Name=tag:owner,Values=student" --query ["Reservations[*].Instances[*].NetworkInterfaces[0].Association.PublicDnsName"] --output text)
     ````
 
 1. Delete the instance
