@@ -1,20 +1,18 @@
 {
-    "Role": {
-        "Path": "/",
-        "RoleName": "sysops33-ec2-bucket-role",
-        "AssumeRolePolicyDocument": {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "ec2.amazonaws.com"
-                    },
-                    "Action": "sts:AssumeRole"
-                }
-            ]
-        },
-        "Description": "Allows EC2 instances to call AWS services on your behalf.",
-        "MaxSessionDuration": 3600
-    }
+    "Path": "/",
+    "RoleName": "sysops33-ec2-bucket-role",
+    "AssumeRolePolicyDocument": {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Principal": {
+                    "Service": "ec2.amazonaws.com"
+                },
+                "Action": "sts:AssumeRole"
+            }
+        ]
+    },
+    "Description": "Allows EC2 instances to call AWS services on your behalf.",
+    "MaxSessionDuration": 3600
 }
